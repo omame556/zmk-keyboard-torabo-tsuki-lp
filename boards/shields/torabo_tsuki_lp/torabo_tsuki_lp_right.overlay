@@ -7,7 +7,6 @@
         &zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
         &zip_temp_layer 5 1200
     >;
-    scroll-layers = <3>;
 };
 
 &size_s_transform {

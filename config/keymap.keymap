@@ -11,7 +11,7 @@
         bt_clear {
             bindings = <&bt BT_CLR>;
             key-positions = <28 29>;
-            layers = <2>;
+            layers = <4>;
         };
     };
 
@@ -30,39 +30,39 @@
             >;
         };
 
-        /* Layer 1: 数字・記号・Fn系 */
+        /* Layer 1: 記号 */
         layer_1 {
-            display-name = "NumFn";
+            display-name = "Symbol";
             bindings = <
-&trans  &trans            &trans            &trans      &trans      &trans                      &trans          &trans         &trans            &trans             &trans         &trans
-&trans  &kp LS(NUMBER_1)  &kp LS(NUMBER_2)  &kp LS(N3)  &kp LS(N4)  &kp LS(N5)                  &kp LS(N6)      &kp LS(N7)     &kp LS(N8)        &kp LS(N9)         &kp LS(N0)     &trans
-&trans  &kp N1            &kp N2            &kp N3      &kp N4      &kp N5      &trans  &trans  &kp LEFT_BRACE  &kp MINUS      &kp EQUAL         &kp RIGHT_BRACE    &kp COLON      &trans
-&trans  &kp N6            &kp N7            &kp N8      &kp N9      &kp N0      &trans  &trans  &kp LS(MINUS)   &kp LS(EQUAL)  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH  &trans
-&trans  &trans            &trans            &trans      &trans      &trans      &trans  &trans  &kp TAB         &kp DEL        &trans            &trans             &trans         &trans
+&trans  &trans    &trans    &trans    &trans    &trans                    &trans    &trans    &trans    &trans    &trans    &trans
+&trans  &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                 &kp CARET &kp AMPS  &kp ASTRK &kp LPAR  &kp RPAR  &trans
+&trans  &kp MINUS &kp UNDER &kp EQUAL &kp PLUS  &kp PIPE   &trans &trans  &kp LBKT  &kp RBKT  &kp LBRC  &kp RBRC  &kp BSLH  &trans
+&trans  &kp SCLN  &kp COLON &kp SQT   &kp DQT   &kp GRAVE  &trans &trans  &kp LT    &kp GT    &kp COMMA &kp DOT   &kp FSLH  &trans
+&trans  &trans    &trans    &trans    &trans    &trans     &trans &trans  &kp TAB   &kp DEL   &trans    &trans    &trans    &trans
             >;
         };
 
-        /* Layer 2: 手動マウス */
+        /* Layer 2: テンキー */
         layer_2 {
+            display-name = "Numpad";
+            bindings = <
+&trans  &trans        &trans        &trans        &trans        &trans                     &trans        &trans      &trans      &trans         &trans        &trans
+&trans  &trans        &trans        &trans        &trans        &trans                     &trans        &kp KP_N7   &kp KP_N8   &kp KP_N9      &kp KP_MINUS  &trans
+&trans  &trans        &trans        &trans        &trans        &trans      &trans &trans  &trans        &kp KP_N4   &kp KP_N5   &kp KP_N6      &kp KP_PLUS   &trans
+&trans  &trans        &trans        &trans        &trans        &trans      &trans &trans  &trans        &kp KP_N1   &kp KP_N2   &kp KP_N3      &kp KP_MULTIPLY &trans
+&trans  &trans        &trans        &trans        &trans        &trans      &trans &trans  &kp KP_ENTER  &kp KP_N0   &kp KP_DOT  &kp KP_DIVIDE  &kp KP_EQUAL  &trans
+            >;
+        };
+
+        /* Layer 3: 手動マウス・スクロール */
+        layer_3 {
             display-name = "Mouse";
             bindings = <
-&trans  &trans  &trans  &trans     &trans     &trans                  &trans  &trans     &trans     &trans  &trans  &trans
-&trans  &trans  &trans  &trans     &trans     &trans                  &trans  &trans     &trans     &trans  &trans  &trans
-&trans  &trans  &trans  &mkp RCLK  &mkp LCLK  &trans  &trans  &trans  &trans  &mkp LCLK  &mkp RCLK  &trans  &trans  &trans
-&trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans
-&trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans
-            >;
-        };
-
-        /* Layer 3: スクロール専用 */
-        layer_3 {
-            display-name = "Scroll";
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans          &trans          &trans                  &trans  &trans          &trans           &trans  &trans  &trans
+&trans  &trans  &trans  &trans          &trans          &trans                  &trans  &trans          &trans           &trans  &trans  &trans
+&trans  &trans  &trans  &mkp RCLK       &mkp LCLK       &trans  &trans  &trans  &trans  &mkp MB4        &mkp MB5         &trans  &trans  &trans
+&trans  &trans  &trans  &msc SCRL_LEFT  &msc SCRL_UP    &trans  &trans  &trans  &trans  &msc SCRL_DOWN  &msc SCRL_RIGHT  &trans  &trans  &trans
+&trans  &trans  &trans  &trans          &trans          &trans  &trans  &trans  &trans  &trans          &trans           &trans  &trans  &trans
             >;
         };
 
@@ -70,11 +70,11 @@
         layer_4 {
             display-name = "Maint";
             bindings = <
-&trans  &trans   &trans   &trans        &trans        &trans                      &trans            &trans     &trans         &trans     &trans      &trans
-&trans  &kp F1   &kp F2   &kp F3        &kp F4        &kp F5                      &kp HOME          &kp PG_UP  &kp PAGE_DOWN  &kp END    &kp ESCAPE  &trans
-&trans  &kp F6   &kp F7   &kp F8        &kp F9        &kp F10     &trans  &trans  &kp LEFT          &kp DOWN   &kp UP_ARROW   &kp RIGHT  &kp TAB     &trans
-&trans  &kp F11  &kp F12  &out OUT_USB  &out OUT_BLE  &bt BT_NXT  &trans  &trans  &kp SINGLE_QUOTE  &kp DQT    &kp GRAVE      &kp TILDE  &kp PIPE    &trans
-&trans  &trans   &trans   &trans        &kp DELETE    &kp TAB     &trans  &trans  &bt BT_CLR_ALL    &bootloader &trans        &trans     &trans      &trans
+&trans  &trans   &trans   &trans        &trans        &trans                      &trans        &trans     &trans      &trans      &trans      &trans
+&trans  &kp F1   &kp F2   &kp F3        &kp F4        &kp F5                      &kp HOME      &kp PG_UP  &kp PG_DN   &kp END     &kp ESC     &trans
+&trans  &kp F6   &kp F7   &kp F8        &kp F9        &kp F10     &trans  &trans  &kp LEFT      &kp DOWN   &kp UP      &kp RIGHT   &kp TAB     &trans
+&trans  &kp F11  &kp F12  &out OUT_USB  &out OUT_BLE  &bt BT_NXT  &trans  &trans  &kp SQT       &kp DQT    &kp GRAVE   &kp TILDE   &kp PIPE    &trans
+&trans  &trans   &trans   &trans        &kp DEL       &kp TAB     &trans  &trans  &bt BT_CLR_ALL &bootloader &trans     &trans      &trans      &trans
             >;
         };
 
@@ -82,14 +82,12 @@
         layer_5 {
             display-name = "AML";
             bindings = <
-&trans  &trans  &trans  &trans      &trans      &trans                  &trans  &trans  &trans  &trans      &trans      &trans
-&trans  &trans  &trans  &trans      &trans      &trans                  &trans  &trans  &trans  &trans      &trans      &trans
-&trans  &trans  &trans  &mkp RCLK   &mkp LCLK   &trans  &trans  &trans  &trans  &mkp LCLK   &mkp RCLK   &trans      &trans      &trans
-&trans  &trans  &trans  &trans      &trans      &trans  &trans  &trans  &trans  &trans      &trans      &trans      &trans      &trans
-&trans  &trans  &trans  &trans      &trans      &trans  &trans  &trans  &trans  &trans      &trans      &trans      &trans      &trans
+&trans  &trans  &trans  &trans          &trans          &trans                  &trans  &trans          &trans           &trans  &trans  &trans
+&trans  &trans  &trans  &trans          &trans          &trans                  &trans  &trans          &trans           &trans  &trans  &trans
+&trans  &trans  &trans  &mkp RCLK       &mkp LCLK       &trans  &trans  &trans  &trans  &mkp MB4        &mkp MB5         &trans  &trans  &trans
+&trans  &trans  &trans  &msc SCRL_LEFT  &msc SCRL_UP    &trans  &trans  &trans  &trans  &msc SCRL_DOWN  &msc SCRL_RIGHT  &trans  &trans  &trans
+&trans  &trans  &trans  &trans          &trans          &trans  &trans  &trans  &trans  &trans          &trans           &trans  &trans  &trans
             >;
         };
     };
 };
-
-
